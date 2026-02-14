@@ -1,0 +1,41 @@
+{
+  "name": "@kanban/shared",
+  "version": "1.0.0",
+  "description": "Shared types, schema, and utilities for Kanban BED stack",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./schema": "./src/schema.ts",
+    "./types": "./src/types.ts",
+    "./config": "./src/config.ts",
+    "./db": "./src/db.ts",
+    "./utils/ranking": "./src/utils/ranking.ts"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "bun run migrate.ts",
+    "db:seed": "bun run seed.ts",
+    "db:studio": "drizzle-kit studio",
+    "typecheck": "tsc --noEmit",
+    "lint": "tsc --noEmit",
+    "test": "bun test"
+  },
+  "dependencies": {
+    "drizzle-orm": "0.45.1",
+    "drizzle-zod": "^0.5.1",
+    "zod": "^3.22.0"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "better-sqlite3": "12.6.2",
+    "drizzle-kit": "0.31.9",
+    "typescript": "^5.3.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

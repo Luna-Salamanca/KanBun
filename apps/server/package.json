@@ -1,0 +1,24 @@
+{
+  "name": "@kanban/server",
+  "version": "1.0.0",
+  "module": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "bun run --watch src/index.ts",
+    "start": "bun run src/index.ts",
+    "test": "bun test",
+    "test:ws": "bun run scripts/test-ws-full.ts",
+    "test:api": "bun run scripts/test-crud.ts"
+  },
+  "dependencies": {
+    "@elysiajs/cors": "1.4.1",
+    "@elysiajs/openapi": "1.4.14",
+    "@kanban/shared": "workspace:*",
+    "drizzle-orm": "0.45.1",
+    "elysia": "latest"
+  },
+  "devDependencies": {
+    "@types/ws": "8.18.1",
+    "bun-types": "latest"
+  }
+}
