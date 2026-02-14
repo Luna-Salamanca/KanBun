@@ -31,5 +31,9 @@ jobs:
       - name: Build
         run: make build
 
+      - name: Setup Database
+        run: |
+          make db-generate
+          make db-migrate
       - name: Test
         run: make test
