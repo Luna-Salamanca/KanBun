@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build:
+    name: Build & Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2.1.2
+        with:
+          bun-version: latest
+
+      - name: Install Dependencies
+        run: make install
+
+      - name: Lint
+        run: make lint
+
+      - name: Type Check
+        run: make type
+
+      - name: Build
+        run: make build
+
+      - name: Test
+        run: make test
